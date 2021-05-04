@@ -1,0 +1,376 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <meta name="HandheldFriendly" content="true" />
+  <title>Thank You</title>
+  {% comment %}
+  <script type="text/javascript" src="https://cdn.jotfor.ms//js/prototype.js"></script> {% endcomment %}
+  <style type="text/css">
+    * {
+      box-sizing: border-box;
+      *behavior: url(js/boxsizing.htc);
+    }
+
+    html,
+    body {
+      width: 100%;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    body {
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      background: #948C75;
+      background-repeat: repeat;
+      background-attachment: scroll;
+      background-position: center top;
+      background-size: auto;
+
+      font-family: Lucida Grande, sans-serif;
+      font-size: 14px;
+      color: #7A6A53;
+      text-align: center;
+      word-break: break-word;
+    }
+
+    .form-all {
+      background: #D9CEB2;
+      background-repeat: repeat;
+      background-attachment: scroll;
+      background-position: center top;
+      background-size: auto;
+
+      max-width: 690px;
+      width: calc(100% - 70px);
+      margin: 35px auto;
+      padding: 0 1%;
+      padding-bottom: 30px;
+      box-shadow: 0 4px 4px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    img {
+      margin: 24px 0 18px 0;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+    }
+
+    .wrapper .col-2 {
+      background: #D9CEB2;
+    }
+
+    .thankyou-main-text {
+      font-size: 50px;
+      font-weight: 600;
+    }
+
+    .thankyou-sub-text {
+      margin-bottom: 0;
+      color: #7A6A53;
+      opacity: 0.6;
+    }
+
+    #footer {
+      text-align: left;
+      margin: -35px auto 0;
+      font-size: 14px;
+      width: 690px;
+    }
+
+    #footer>div {
+      box-shadow: 0 4px 4px -1px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      padding: 12px 15px;
+      overflow: hidden;
+    }
+
+    #footer>div>div {
+      padding: 10px 0 10px 5px
+    }
+
+    .thankYouPage-footerJFLink span {
+      display: none
+    }
+
+    .ty-buttons {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+      font-size: 16px;
+      font-family: 'inter', sans-serif;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 4px;
+      padding: 0 15px;
+      cursor: pointer;
+    }
+
+    .ty-buttons.thankYouFillAgain {
+      margin-right: 8px;
+    }
+
+    .thankYouButtonWrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px 0 25px 0;
+    }
+
+    .ty-buttons::before {
+      content: "";
+      display: flex;
+      margin-right: 8px;
+      background-repeat: no-repeat;
+    }
+
+    .ty-buttons.thankYouEditSubmission::before {
+      background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNC4zNDIgMS4yMDZsMi40MDIgMi40MDJjLjM1NC0uMzQuNzMxLS42ODIgMS4wOC0xLjA1YS41NDguNTQ4IDAgMDAtLjAwMi0uNzMzYy0uNTQ2LS41NTEtMS4wOTQtMS4xLTEuNjQ3LTEuNjQyLS4yNDItLjIzNy0uNTU4LS4yNDYtLjgwMS0uMDE0LS4zNTUuMzQtLjY5NC42OTUtMS4wMzIgMS4wMzd6bS0uNjU3LjcwOGMtLjAyLjAxNy0uMDUuMDQzLS4wNzguMDcxLTIuNTc4IDIuNTYtNS4xNTcgNS4xMTktNy43MzIgNy42ODFhLjMxLjMxIDAgMDAtLjA4Mi4xOTdjLS4wMDYuNzI2LS4wMDQgMS40NTItLjAwMyAyLjE3OCAwIC4wNDMuMDA1LjA4Ni4wMDguMTMuMDM3LjAwMy4wNi4wMDguMDgxLjAwOC43NTMgMCAxLjUwNi4wMDIgMi4yNTktLjAwMy4wNTcgMCAuMTI2LS4wNDIuMTY5LS4wODYgMi41NTgtMi41NzIgNS4xMTQtNS4xNDcgNy42Ny03LjcyMi4wMzItLjAzMS4wNi0uMDY0LjA3OC0uMDg0bC0yLjM3LTIuMzd6IiBmaWxsPSIjMkMzMzQ1Ii8+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNS4wNDMgMThIMi44NzhhMi4zNyAyLjM3IDAgMDEtMi4zNjYtMi4zNjdWMy4wODFBMi4zNyAyLjM3IDAgMDEyLjg3OC43MTVoNy4xODhhLjgxMS44MTEgMCAxMTAgMS42MjNIMi44NzhhLjc0NC43NDQgMCAwMC0uNzQzLjc0M3YxMi41NTJjMCAuNDEuMzMzLjc0NC43NDMuNzQ0aDEyLjE2NWMuNDEgMCAuNzQzLS4zMzQuNzQzLS43NDRWMTAuMDVhLjgxMS44MTEgMCAwMTEuNjIzIDB2NS41ODRBMi4zNyAyLjM3IDAgMDExNS4wNDMgMTh6IiBmaWxsPSIjMkMzMzQ1Ii8+PC9zdmc+");
+      width: 18px;
+      height: 18px;
+      background-size: 17px;
+    }
+
+    .ty-buttons.thankYouFillAgain::before {
+      background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMy4xMDcgOC42N2MuMTYuOTYxLjMyNCAxLjkwMS4wOCAyLjg2LS4yNC45MzktLjU5OCAxLjgwMy0xLjIyNSAyLjU0Ni0uNjIzLjczOS0xLjM1MyAxLjMxMi0yLjI0IDEuNjcyLTIuNTg4IDEuMDUzLTUuMjM1LjA5OC02LjcyLTEuODUzLTEuNTY0LTIuMDU1LTEuNjQzLTQuOTM0LS4xODYtNy4wNDFDNC4yNCA0Ljc5NyA2LjYyMiA0LjExNyA4LjE1MiA0LjQyOWwuMDQxIDIuOTA3IDMuNTM5LTMuNjI2TDguMTEzIDBsLS4wMTIgMi41MzVDNC4wMSAyLjIzMS45NTcgNS4yNDIuMjE1IDguMzgyYy0uNzc2IDMuMjguNTkyIDYuNzEzIDMuNDIgOC40ODggMi43NzIgMS43MzggNi4zNzkgMS40NDcgOC44MDctLjcxIDIuNTMzLTIuMjQ5IDMuMTE3LTUuNDI1IDIuMjg1LTguMTM2bC0xLjYyLjY0NnoiIGZpbGw9IiMyQzMzNDUiLz48L3N2Zz4=");
+      width: 16px;
+      height: 18px;
+      background-size: 15px;
+    }
+
+    .ty-buttons.thankYouDownloadPDF::before {
+      background-image: url("data:image/svg+xml,%3Csvg width='14' height='16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 12c.3 0 .5-.1.7-.3L13.4 6 12 4.6l-4 4V0H6v8.6l-4-4L.6 6l5.7 5.7c.2.2.4.3.7.3zM0 14h14v2H0v-2z' fill='%232C3345'/%3E%3C/svg%3E");
+      width: 14px;
+      height: 16px;
+    }
+
+    .ty-buttons.thankYouViewSubmission::before {
+      background-image: url("data:image/svg+xml,%3Csvg width='21' height='13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 6.053C1.585 4.035 5.794 0 9.945 0c4.15 0 8.647 4.035 10.376 6.053-2.161 2.018-7.263 6.053-10.376 6.053-3.114 0-7.927-4.035-9.945-6.053zm9.945 3.46a3.459 3.459 0 100-6.919 3.459 3.459 0 000 6.918z' fill='%232C3345'/%3E%3Ccircle cx='10' cy='6' r='2' fill='%232C3345'/%3E%3C/svg%3E");
+      width: 21px;
+      height: 13px;
+    }
+
+    .thankYouDownloadPDFWrapper {
+      display: flex;
+      width: 100%;
+      border-top: 1px solid #948C75;
+      padding: 25px 0 35px 0;
+    }
+
+    .thankYouPDFList {
+      display: flex;
+      width: 100%;
+      padding: 0 16px;
+      flex-wrap: wrap;
+      margin: 0;
+    }
+
+    .pdf-image-wrapper {
+      margin-right: 16px;
+    }
+
+    .pdf-SVG {
+      background-image: url("data:image/svg+xml,%3Csvg width='47' height='49' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.97 0h23.418c.862 0 1.561.717 1.561 1.602v11.216c0 .885.7 1.603 1.562 1.603h10.928c.862 0 1.561.717 1.561 1.602v30.443c0 .885-.699 1.602-1.561 1.602H7.97c-.862 0-1.56-.717-1.56-1.602V1.602C6.41.717 7.107 0 7.97 0zm30.767 2.735l5.598 5.746c.61.625.61 1.64 0 2.266-.293.3-.69.469-1.104.469h-5.598c-.862 0-1.561-.717-1.561-1.602V3.868c0-.885.699-1.602 1.56-1.602.415 0 .812.169 1.105.47z' fill='%23E6EBF2'/%3E%3Cpath d='M1.57 23.5h37.676c.867 0 1.57.705 1.57 1.574v14.168c0 .869-.703 1.574-1.57 1.574H1.57c-.867 0-1.57-.705-1.57-1.574V25.074c0-.87.703-1.574 1.57-1.574z' fill='%23D04241'/%3E%3Cpath d='M8.545 36.318h1.858v-2.77h1.562c2.021 0 3.197-1.173 3.197-2.88 0-1.698-1.155-2.895-3.15-2.895H8.545v8.545zm1.858-4.219v-2.85h1.253c1.073 0 1.592.568 1.592 1.42 0 .846-.52 1.43-1.583 1.43h-1.262zM19.483 36.318c2.678 0 4.3-1.61 4.3-4.281 0-2.662-1.622-4.264-4.274-4.264h-3.14v8.545h3.114zm-1.257-1.548v-5.45h1.185c1.647 0 2.518.818 2.518 2.717 0 1.907-.87 2.733-2.523 2.733h-1.18zM25.16 36.318h1.857v-3.53h3.574v-1.49h-3.574v-2.036h3.96v-1.49H25.16v8.546z' fill='%23fff'/%3E%3C/svg%3E");
+      width: 47px;
+      height: 49px;
+      background-repeat: no-repeat;
+      display: flex;
+    }
+
+    .downloadPDFItem {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+
+    .downloadPDFItem:only-child {
+      margin-bottom: 0;
+    }
+
+    .downloadPDFItem .thankyou-btn-wrapper {
+      margin-left: auto;
+    }
+
+    .pdf-name-wrapper {
+      overflow: hidden;
+    }
+
+    .pdf-name {
+      font-size: 15px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      max-width: 100%;
+      display: block;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .ty-buttons.thankYouEditSubmission,
+    .ty-buttons.thankYouDownloadPDF {
+      color: #7A6A53;
+      background-color: #D9CEB2;
+      border-color: #7A6A53;
+    }
+
+    .ty-buttons.thankYouFillAgain {
+      color: #7A6A53;
+      background-color: #D9CEB2;
+      border-color: #7A6A53;
+    }
+
+    .thankYouFillAgain.thankYouFillAgainWrapper.notActive,
+    .thankYouEditSubmission.thankYouEditSubmissionWrapper.notActive,
+    .thankYouDownloadPDF.thankYouDownloadPDFWrapper.notActive,
+    .thankYouViewSubmission.thankYouViewSubmissionWrapper.notActive,
+    .notActiveTyIcon,
+    .thankYouButtonWrapper.notActive,
+    .nonEditableInvisable.notActive,
+    .downloadPDFItem.notActive {
+      display: none;
+    }
+
+    .thankYouFillAgain.thankYouFillAgainWrapper.active,
+    .thankYouEditSubmission.thankYouEditSubmissionWrapper.active,
+    .thankYouDownloadPDF.thankYouDownloadPDFWrapper.active,
+    .thankYouViewSubmission.thankYouViewSubmissionWrapper.active,
+    .nonEditableInvisable.active,
+    .thankYouButtonWrapper.active,
+    .downloadPDFItem.active {
+      display: flex;
+    }
+
+    .activeTyIcon {
+      display: initial;
+    }
+
+    @media screen and (max-width: 690px),
+    screen and (max-device-width: 768px) and (orientation: portrait),
+    screen and (max-device-width: 415px) and (orientation: landscape) {
+      .form-all {
+        border: 0;
+        box-shadow: none;
+        width: 94%;
+      }
+
+      .thankYouPage-footerJFLink img {
+        display: none
+      }
+
+      #footer {
+        width: 94%;
+        margin-top: 0;
+      }
+
+      #footer>div.summer-sale-2018>div a {
+        padding: 3px 0 0 1px;
+        font-size: 10px;
+      }
+
+      #footer>div>div {
+        padding: 3px 0 0 5px;
+        font-size: 12px;
+      }
+
+
+      #footer>div>div span {
+        display: block
+      }
+
+      #footer>div>div span.footer-dash {
+        display: none
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .form-all {
+        width: calc(100%);
+        margin: 20px auto;
+      }
+
+      .ty-buttons {
+        font-size: 13px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .thankyou-main-text {
+        font-size: 32px;
+      }
+
+      .wrapper .col-1 img {
+        width: 100px;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+        color: black;
+      }
+
+      .form-all {
+        margin: 0 auto;
+        max-width: 100%;
+        box-shadow: none;
+        background: white;
+        float: none;
+        width: 690px;
+      }
+
+      img {
+        max-width: 100% !important;
+        page-break-inside: avoid;
+      }
+
+    }
+  </style>
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body class="thankyou">
+  <div id="stage" class="form-all">
+    <p style="text-align:center;"><img src="https://cdn.jotfor.ms/img/check-icon.png" alt="" width="128" height="128" />
+    </p>
+    <div style="text-align:center;">
+      <h1 style="text-align:center;">Thank You!</h1>
+      <p style="text-align:center;font-weight:bolder;font-size:x-large;">Your token number is 20.</p>
+    </div>
+
+  </div>
+</body>
+<script type="text/javascript">
+  if (window.parent !== window) {
+    var stageMarginTop = ($('stage')) ? parseInt($('stage').getStyle('marginTop')) : 0;
+    var height = $$('body').first().getHeight() + (stageMarginTop * 2);
+    window.parent.postMessage('setHeight:' + height + ':210921603464449', '*');
+    window.parent.postMessage({ action: 'submission-completed' }, '*');
+  }
+
+  // Prevent duplicate submission on mobile safari, #2391271
+  var isMobileSafari = (/.*(iphone|ipad|ipod).*1[1-9]_.*(version).*(safari)/i).test(window.navigator.userAgent);
+  if (isMobileSafari) {
+    var origin = 'https://submit.jotform.com/';
+    var url = origin + '210921603464449';
+    // be sure of being same origin before using referrer
+    if (document.referrer && document.referrer.indexOf(origin) !== -1) {
+      url = document.referrer;
+    }
+    window.history.replaceState("", "", url);
+  }
+  window.newThankYouPage = true;
+  window.submissionID = '';
+  window.formID = '210921603464449';
+</script>
+<script src='https://submit.jotform.com//js/includes/thankYouPageScripts.js'></script>
+
+</html>
