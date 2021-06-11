@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+  <title>Curent Token</title>
+</head><br><br><br><br><br><br>
+<body style="background-color:indigo;">
+      <center>
+      <div style="height: 20vh;width: 60vw;display: block;">
+
+          <div class="card mb-3">
+            {% comment %} <img src="{% static 'img/token.jpg' %}" class="card-img-top" alt="..."> {% endcomment %}
+            <div class="card-body">
+              <h3>Current Ongoing Token NO</h3>
+              <h5 class="card-title"><h1>#{{ currenttokennum.token }}</h1> is Your Token Number!</h5>
+              <p class="card-text">Current ongoing token</p>
+              <p class="card-text"><small class="text-muted">Dont forget to visit counter on time!</small></p>
+            </div>
+          </div>
+
+      </div>
+      </center>
+
+
+</body>
+</html>

@@ -11,7 +11,6 @@
         <title>Q Less</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
             crossorigin="anonymous">
-        <link rel="stylesheet" href="">
     </head>
 
 <body style="background-image: url('static/img/background1.jpg'); background-size: cover;">
@@ -30,19 +29,8 @@
               <li class="nav-item">
                 <a class="nav-link" href="/adminview" target="_blank">ADMIN</a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
               <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                <a class="nav-link" href="/currenttoken" target="_blank">CURRENT ONGOING TOKEN</a>
               </li>
             </ul>
           </div>
@@ -58,7 +46,7 @@
         </div>
     {% endif %}
 
-    <form action="" method="post" name="form_210921603464449" id="210921603464449" accept-charset="utf-8" autocomplete="on" style="font-size: larger; font-weight: bold; width: 900px;margin: auto ;margin-top: 100px;margin-bottom: 100px; padding: 40px 50px 40px 50px;border: 5px solid black; background-color: rgba(177, 177, 177, 0.616);" class="main-form needs-validation" novalidate>
+    <form method="post" name="form_210921603464449" id="210921603464449" accept-charset="utf-8" autocomplete="on" style="font-size: larger; font-weight: bold; width: 900px;margin: auto ;margin-top: 100px;margin-bottom: 100px; padding: 40px 50px 40px 50px;border: 5px solid black; background-color: rgba(177, 177, 177, 0.616);" class="main-form needs-validation" novalidate>
         {% csrf_token %}
         <div class="form-header-group  header-large">
             <div class="header-text httac htvam">
@@ -119,9 +107,15 @@
         </div>
 
         <center><br>
-        <button type="submit" class="btn btn-success btn-lg"><strong>Generate Token</strong></button>
+        <button type="submit" class="btn btn-success btn-lg"><strong>Submit</strong></button>
         </center>
     </form>
+    <div class="btn" role="group" aria-label="Basic mixed styles example">
+      <a href="{% url 'token' %}"><button type="button" class="btn btn-success">Result</button></a>
+          
+          <!-- <button type="button" class="btn btn-warning">Middle</button> -->
+          
+      </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
             crossorigin="anonymous"></script>

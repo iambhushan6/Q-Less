@@ -1,13 +1,10 @@
-from django.shortcuts import render,HttpResponse
-from Tokenapp.models import Student
+from django.shortcuts import redirect, render,HttpResponse
+from Tokenapp.models import CurrentToken, Student
 from datetime import datetime
 
 # Create your views here.
 
 def studentview(request):
-    context={
-        'success': False
-    }
     if request.method == "POST":    
         name = request.POST.get('firstname')
         email = request.POST.get('email')
@@ -22,18 +19,13 @@ def studentview(request):
         gr_no = gr_no,
         branch = branch,
         year = year,
-        query = query,
-        date = datetime.datetime.now()
+        query = query
         )
 
         student_detail.save()
+        return redirect('token')
 
-        context={
-            'success':True
-        }
-
-    return render(request,"studentview.html",context)
-    # return HttpResponse("Hello Bhushan")
+    return render(request,"studentview.html")
 
 def adminview(request):
     registrations = Student.objects.all()
@@ -42,5 +34,30 @@ def adminview(request):
     }
     return render(request,'adminview.html',context)
 
-def thanku(request):
-    return render(request,'thanku.html')
+def token(request):
+    tokennum = Student.objects.last()
+    context = {
+        'tokenno': tokennum
+    }
+    return render(request,'token.html', context)
+
+def markasresolved(request, pk):
+    registrations = Student.objects.get(pk=pk)
+    lastdeleted = CurrentToken.objects.all()
+    lastdeleted.update(token = pk+1) 
+    # lastdeleted.save()
+    if request.method == 'POST':
+        registrations.delete()
+        return redirect('adminview')
+    context={
+        'entries': registrations
+    }
+    return render(request,'adminview.html',context)
+
+def currenttoken(request):
+    current = CurrentToken.objects.last()
+    context = {
+        'currenttokennum' : current,
+    }
+    return render(request, 'currenttoken.html',context)
+

@@ -62,6 +62,8 @@
                 <th scope="col"> Year </th>
                 <th scope="col"> Query </th>
                 <th scope="col"> Datetime </th>
+                <th scope="col"> Token NO </th>
+                <th scope="col"> Mark as Resolved </th>
               </tr>
             </thead>
             <tbody>
@@ -75,6 +77,13 @@
                 <td>{{ entry.year }}</td>
                 <td>{{ entry.query }}</td>
                 <td>{{ entry.date }}</td>
+                <td><strong>{{ entry.id }}</strong></td>
+                <td>
+                  <form method="POST" action="{% url 'markasresolved' entry.id %}">
+                    {% csrf_token %}
+                    <input type="submit" value="Mark as Resolved">
+                  </form>
+                </td>
               </tr>
             {% endfor %}
             </tbody>
