@@ -1,1 +1,1 @@
-web: gunicorn pollkar.wsgi --log-file -
+web: gunicorn Tokenizer.wsgi --log-file -
