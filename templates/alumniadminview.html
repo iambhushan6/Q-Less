@@ -1,0 +1,98 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+    <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="icon" href="{% static 'img/token.jpg' %}" type="image" sizes="16x16">
+
+    <title>Adminview</title>
+    </head>
+
+    <body style="background-color:rgb(245, 245, 245); margin: 0; padding: 0;">
+
+    <nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Q-LESS Alumni Registration</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">HOME</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/alumniadminview" target="_blank">ADMIN-alumni</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/alumnicurrenttoken" target="_blank">CURRENT ONGOING TOKEN</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
+        <br><center><h2>Alumni  Entries | Admin Panel</h2></center><br><br>
+        <table class="table table-striped table-success table-success table-hover"  >
+            <thead>
+              <tr>
+                <th scope="col"> Sr.no </th>
+                <th scope="col"> Alumni Name </th>
+                <th scope="col"> Email </th>
+                <th scope="col"> GR_NO </th>
+                <th scope="col"> Branch </th>
+                <th scope="col"> Query </th>
+                <th scope="col"> Datetime </th>
+                <th scope="col"> Token NO </th>
+                <th scope="col"> Passout Yr </th>
+                <th scope="col"> Mark as Resolved </th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for entry in entries %}
+              <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ entry.name }}</td>
+                <td>{{ entry.email }}</td>
+                <td>{{ entry.gr_no }}</td>
+                <td>{{ entry.branch }}</td>
+                <td>{{ entry.query }}</td>
+                <td>{{ entry.date }}</td>
+                <td><strong>{{ entry.id }}</strong></td>
+                <td>{{ entry.passout }}</td>
+                <td>
+                  <form method="POST" action="{% url 'markasresolved' entry.id %}">
+                    {% csrf_token %}
+                    <input type="submit" value="Mark as Resolved">
+                  </form>
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+            
+
+
+
+
+
+
+
+
+        <!-- Optional JavaScript; choose one of the two! -->
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+
+        <!-- Option 2: Separate Popper and Bootstrap JS -->
+        <!--
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+        -->
+    </body>
+</html>

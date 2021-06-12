@@ -15,11 +15,11 @@
             crossorigin="anonymous">
     </head>
 
-<body style="background-image: url('static/img/background1.jpg'); background-size: cover;">
+<body style="background-image: "{% static 'img/background1.jpg' %}"; background-size: cover;">
 
     <nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Q-LESS</a>
+          <a class="navbar-brand" href="#">Q-LESS Alumni Registration</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -29,13 +29,10 @@
                 <a class="nav-link active" aria-current="page" href="/">HOME</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/adminview" target="_blank">ADMIN</a>
+                <a class="nav-link" href="/alumniadminview/" target="_blank">ADMIN-alumni</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/currenttoken" target="_blank">CURRENT ONGOING TOKEN</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/adminregistration" target="_blank">Alumni Registration</a>
+                <a class="nav-link" href="/alumnicurrenttoken/" target="_blank">CURRENT ONGOING TOKEN</a>
               </li>
             </ul>
           </div>
@@ -56,7 +53,7 @@
         <div class="form-header-group  header-large">
             <div class="header-text httac htvam">
               <h1 id="header_1" class="form-header" data-component="header" style="text-align: center;">
-                Q-Less | Token Generator
+                Q-Less | Alumni-Token Generator
               </h1>
             </div><br><br>
           </div>
@@ -95,16 +92,15 @@
                 <option value="instru">INSTRU</option>
             </select>
         </div>
-        
+
         <div class="form-group">
-            <label for="Year">Year</label>
-            <select name="year" id="yeer" class="form-control">
-                <option value="fy">FY</option>
-                <option value="sy">SY</option>
-                <option value="ty" selected>TY</option>
-                <option value="btech">B.Tech</option>
+            <label for="passout">Passout</label>
+            <select name="passout" id="passout" class="form-control" aria-placeholder="Select branch">
+                <option value="2019-2020">2019-2020</option>
+                <option value="2020-2021">2020-2021</option>
+
             </select>
-        </div> 
+        </div>
 
         <div class="form-group" >
             <label for="quer">Ask Query</label><br>
@@ -115,12 +111,6 @@
         <button type="submit" class="btn btn-success btn-lg"><strong>Submit</strong></button>
         </center>
     </form>
-    <div class="btn" role="group" aria-label="Basic mixed styles example">
-      <a href="{% url 'token' %}"><button type="button" class="btn btn-success">Result</button></a>
-          
-          <!-- <button type="button" class="btn btn-warning">Middle</button> -->
-          
-      </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
             crossorigin="anonymous"></script>
